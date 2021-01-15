@@ -4,6 +4,8 @@ using UnityEngine;
 using CSharpTheory;
 using CSharpTheory.Inheritance;
 using CSharpTheory.Genericity;
+using MemberHiding = CSharpTheory.MemberHiding;
+using CSharpTheory.Interface;
 
 public class MoveBehaviour : MonoBehaviour
 {
@@ -40,19 +42,29 @@ public class MoveBehaviour : MonoBehaviour
         // Debug.Log(c2.getHp()); // 12
         // Debug.Log(((ChildClass)c2).getMp()); // 13
 
-        Group<User> userGroup = new Group<User>();
+        // Group<User> userGroup = new Group<User>();
 
-        Female female = new Female();
-        userGroup.AddUser(female);
-        Male male = new Male();
-        userGroup.AddUser(male);
-        User user = new User();
-        userGroup.AddUser(user);
+        // Female female = new Female();
+        // userGroup.AddUser(female);
+        // Male male = new Male();
+        // userGroup.AddUser(male);
+        // User user = new User();
+        // userGroup.AddUser(user);
 
-        foreach(User u in userGroup.GetList())
-        {
-            Debug.Log(u.SelfDescribe());
-        }
+        // foreach(User u in userGroup.GetList())
+        // {
+        //     Debug.Log(u.SelfDescribe());
+        // }
+
+        MemberHiding.ParentClass parent = new MemberHiding.ParentClass();
+        MemberHiding.ParentClass child = new MemberHiding.ChildClass();
+
+        Debug.Log(parent.Name);
+        Debug.Log(child.Name);
+
+        // IMyInterface attacker = new Attacker();
+
+        // attacker.Attack();
         
     }
 
