@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e62a8872ff2b48aba66818b8721d131, type: 3}
-  m_Name: Monster
+  m_Name: Gobelin
   m_EditorClassIdentifier: 
   name: Gobelin
   maxHP: 15
   strength: 12
   defense: 13
   intelligence: 15
+  precision: 0.99

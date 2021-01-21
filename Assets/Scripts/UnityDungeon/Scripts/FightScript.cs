@@ -16,6 +16,7 @@ namespace UnityDungeon
         public TextMeshProUGUI hpEnnemy;
 
         public RevealText revealText;
+        public Animator panelAnimator;
         public int attackIntensity = 5;
 
         [Tooltip("A floating number between 0 and 1")]
@@ -35,8 +36,9 @@ namespace UnityDungeon
         // Start is called before the first frame update
         IEnumerator Start()
         {
+            panelAnimator.SetBool("PanelActive", true);
             state = FightState.BEGIN;
-            yield return ChangeText($"{ennemy.name} apparaît.");
+            yield return StartCoroutine(ChangeText($"{ennemy.name} apparaît."));
             updateHUD();
             state = FightState.WAITING;
         }
@@ -54,12 +56,23 @@ namespace UnityDungeon
 
         IEnumerator Attack(CharacterData attacker, CharacterData target)
         {
-            float damage = ((float)attacker.strength / target.defense) * attackIntensity;
-            int previousHP = target.HP;
-            target.TakeDamage(damage);
-            int diff = previousHP - target.HP;
-            yield return StartCoroutine(ChangeText($"{attacker.name} attaque {target.name} et lui fait perdre {diff}PV!"));
-            updateHUD();
+            yield return StartCoroutine(ChangeText($"{attacker.name} tente d'attaquer {target.name}..."));
+            yield return new WaitForSeconds(1.0f);
+
+            if(Random.Range(0.0f, 1.0f) < attacker.precision)
+            {
+                float damage = ((float)attacker.strength / target.defense) * attackIntensity;
+                int previousHP = target.HP;
+                target.TakeDamage(damage);
+                int diff = previousHP - target.HP;
+                yield return StartCoroutine(ChangeText($"... {attacker.name} attaque {target.name} et lui fait perdre {diff}PV!"));
+                updateHUD();
+            }
+            else
+            {
+                yield return StartCoroutine(ChangeText($"... mais cela échoue!"));
+
+            }
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -89,7 +102,7 @@ namespace UnityDungeon
             yield return StartCoroutine(Attack(player, ennemy));
             if(ennemy.HP == 0)
             {
-                EndGame(true);
+                StartCoroutine(EndGame(true));
             }
             else
             {
@@ -105,7 +118,7 @@ namespace UnityDungeon
                 yield return StartCoroutine(Attack(ennemy, player));
                 if(player.HP == 0)
                 {
-                    EndGame(false);
+                    StartCoroutine(EndGame(false));
                 }
                 else
                 {
@@ -141,11 +154,12 @@ namespace UnityDungeon
             yield return StartCoroutine(EnnemyTurn());
         }
 
-        void EndGame(bool won)
+        IEnumerator EndGame(bool won)
         {
-            buttons.SetActive(false);
             state = FightState.END;
-            StartCoroutine(ChangeText(won ? "Vous avez gagné." : "Vous avez perdu."));
+            yield return StartCoroutine(ChangeText(won ? "Vous avez gagné." : "Vous avez perdu."));
+            yield return new WaitForSeconds(2.0f);
+            panelAnimator.SetBool("PanelActive", false);
         }
 
     }

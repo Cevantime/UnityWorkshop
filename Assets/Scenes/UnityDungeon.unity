@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 197735572}
   - component: {fileID: 197735571}
   - component: {fileID: 197735570}
+  - component: {fileID: 197735573}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -199,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 7604098c50901834ea252b74f512ef15, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.0830375, g: 0.21698111, b: 0.02661089, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -224,6 +225,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197735568}
   m_CullTransparentMesh: 0
+--- !u!95 &197735573
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197735568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e310f17ff593998729c4bfbeed3596d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &764274358
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +280,7 @@ MonoBehaviour:
   hpPlayer: {fileID: 2102328244}
   hpEnnemy: {fileID: 1816987355}
   revealText: {fileID: 1235068005}
+  panelAnimator: {fileID: 197735573}
   attackIntensity: 5
   healIntensity: 0.3
 --- !u!4 &764274360

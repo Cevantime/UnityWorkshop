@@ -17,3 +17,4 @@ MonoBehaviour:
   strength: 25
   defense: 15
   intelligence: 8
+  precision: 0.6

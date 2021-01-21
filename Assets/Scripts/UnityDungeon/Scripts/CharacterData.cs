@@ -11,6 +11,9 @@ namespace UnityDungeon {
         public int defense;
         public int intelligence;
 
+        [Tooltip("Chances for the attack to succeed. Must be between 0 and 1.")]
+        public float precision;
+
         private float currentHP;
         public int HP 
         {
