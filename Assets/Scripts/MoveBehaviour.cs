@@ -6,6 +6,7 @@ using CSharpTheory.Inheritance;
 using CSharpTheory.Genericity;
 using MemberHiding = CSharpTheory.MemberHiding;
 using CSharpTheory.Interface;
+using CSharpTheory.Enumerator;
 
 public class MoveBehaviour : MonoBehaviour
 {
@@ -56,15 +57,26 @@ public class MoveBehaviour : MonoBehaviour
         //     Debug.Log(u.SelfDescribe());
         // }
 
-        MemberHiding.ParentClass parent = new MemberHiding.ParentClass();
-        MemberHiding.ParentClass child = new MemberHiding.ChildClass();
+        // MemberHiding.ParentClass parent = new MemberHiding.ParentClass();
+        // MemberHiding.ParentClass child = new MemberHiding.ChildClass();
 
-        Debug.Log(parent.Name);
-        Debug.Log(child.Name);
+        // Debug.Log(parent.Name);
+        // Debug.Log(child.Name);
 
         // IMyInterface attacker = new Attacker();
 
         // attacker.Attack();
+
+        Enumerators enumerators = new Enumerators();
+        IEnumerator enumerator = enumerators.myEnumerator();
+        while(true) {
+            if(enumerator.MoveNext()) {
+                Debug.Log(enumerator.Current);
+            } else {
+                break;
+            }
+        }
+
         
     }
 
