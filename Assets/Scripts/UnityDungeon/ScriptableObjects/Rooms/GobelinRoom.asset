@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7572be7db7153042d9cf174a503dd034, type: 3}
+  m_Name: GobelinRoom
+  m_EditorClassIdentifier: 
+  occupant: {fileID: 11400000, guid: ebfd5f00ae66815a6b3cdf111b4e7a77, type: 2}
+  roomLeft: {fileID: 11400000, guid: 7c2115e0878954170946b32c142d74c8, type: 2}
+  roomRight: {fileID: 0}
+  description: "Vous entrez dans une chambre sombre. Quand tout \xE0 coup vous percevez
+    un mouvement sur votre gauche..."

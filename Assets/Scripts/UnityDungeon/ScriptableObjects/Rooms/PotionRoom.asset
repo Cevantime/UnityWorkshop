@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7572be7db7153042d9cf174a503dd034, type: 3}
+  m_Name: PotionRoom
+  m_EditorClassIdentifier: 
+  occupant: {fileID: 11400000, guid: 380b7b0eb9bf583ba87511b2f211d9a1, type: 2}
+  roomLeft: {fileID: 0}
+  roomRight: {fileID: 11400000, guid: 7c2115e0878954170946b32c142d74c8, type: 2}
+  description: "Vous aboutissez dans une pi\xE8ce assez accueillante. Vous distinguez
+    un objet pos\xE9 sur une commode."

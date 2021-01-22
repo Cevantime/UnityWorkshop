@@ -16,5 +16,5 @@ MonoBehaviour:
   maxHP: 35
   strength: 25
   defense: 15
-  intelligence: 8
+  intelligence: 11
   precision: 0.6

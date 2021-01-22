@@ -9,7 +9,7 @@ namespace UnityDungeon
     {
         private TextMeshProUGUI textMesh;
 
-        void Start()
+        void Awake()
         {
             textMesh = GetComponent<TextMeshProUGUI>();
         }

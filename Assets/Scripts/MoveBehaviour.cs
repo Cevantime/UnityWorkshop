@@ -67,15 +67,21 @@ public class MoveBehaviour : MonoBehaviour
 
         // attacker.Attack();
 
-        Enumerators enumerators = new Enumerators();
-        IEnumerator enumerator = enumerators.myEnumerator();
-        while(true) {
-            if(enumerator.MoveNext()) {
-                Debug.Log(enumerator.Current);
-            } else {
-                break;
-            }
-        }
+        // Enumerators enumerators = new Enumerators();
+        // IEnumerator enumerator = enumerators.myEnumerator();
+        // while(true) {
+        //     if(enumerator.MoveNext()) {
+        //         Debug.Log(enumerator.Current);
+        //     } else {
+        //         break;
+        //     }
+        // }
+
+        // Delegate d = new Delegate();
+
+        Lists l = new Lists();
+
+        l.initialize();
 
         
     }
