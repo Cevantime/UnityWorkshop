@@ -6,7 +6,7 @@ using TMPro;
 
 namespace UnityDungeon
 {
-    public class EndFightEvent : UnityEvent<bool> {}
+    public delegate void EndFightDelegate(bool won);
     public class FightScript : MonoBehaviour
     {
         public TextMeshProUGUI textMesh;
@@ -24,6 +24,8 @@ namespace UnityDungeon
         [Tooltip("A floating number between 0 and 1")]
         public float healIntensity = 0.3f;
 
+        public UnityEvent myInspectorEvent;
+
         public enum FightState
         {
             BEGIN,
@@ -33,14 +35,9 @@ namespace UnityDungeon
             END
         }
 
-        public EndFightEvent onFightEnd;
+        public event EndFightDelegate onFightEnd;
 
         private FightState state;
-
-        void Awake()
-        {
-            onFightEnd = new EndFightEvent();
-        }
 
         // Start is called before the first frame update
 

@@ -464,6 +464,9 @@ MonoBehaviour:
   panelAnimator: {fileID: 197735573}
   attackIntensity: 5
   healIntensity: 0.3
+  myInspectorEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &764274360
 Transform:
   m_ObjectHideFlags: 0

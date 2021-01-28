@@ -7,6 +7,8 @@ using CSharpTheory.Genericity;
 using MemberHiding = CSharpTheory.MemberHiding;
 using CSharpTheory.Interface;
 using CSharpTheory.Enumerator;
+using CSharpTheory.Events;
+using System;
 
 public class MoveBehaviour : MonoBehaviour
 {
@@ -79,11 +81,52 @@ public class MoveBehaviour : MonoBehaviour
 
         // Delegate d = new Delegate();
 
-        Lists l = new Lists();
+        // Lists l = new Lists();
 
-        l.initialize();
+        // l.initialize();
 
+        Events evs = new Events();
         
+        evs.myEvent += PrintNumbers;
+        evs.myEvent += AddNumbers;
+
+        evs.EmitMyEvent();
+
+        evs.emptyHandler += ReactToEmptyHandler;
+
+        evs.EmitEmptyHandler();
+
+        evs.twoIntsHandler += ReactToTwoIntsHandler;
+
+        evs.EmitTwoIntsHandler();
+        
+    }
+
+    void PrintNumbers(int a, int b)
+    {
+        Debug.Log("Print Numbers !");
+        Debug.Log(a);
+        Debug.Log(b);
+    }
+
+    void AddNumbers(int a, int b)
+    {
+        Debug.Log("Add Numbers !");
+        Debug.Log(a + b);
+    }
+
+    void ReactToEmptyHandler(object sender, EventArgs args)
+    {
+        Debug.Log("React To Empty Handler !");
+        Debug.Log(sender);
+        Debug.Log(args);
+    }
+
+    void ReactToTwoIntsHandler(object sender, MyEventArgs twoIntsArgs)
+    {
+        Debug.Log("React To Two Ints Handler !");
+        Debug.Log(sender);
+        Debug.Log(twoIntsArgs.A + twoIntsArgs.B);
     }
 
     // Update is called once per frame

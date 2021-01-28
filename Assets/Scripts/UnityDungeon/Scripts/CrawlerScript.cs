@@ -31,7 +31,7 @@ namespace UnityDungeon
             player = Instantiate(player);
             buttons.SetActive(false);
             state = CrawlerState.BEGIN;
-            fightScript.onFightEnd.AddListener(OnFightEnd);
+            fightScript.onFightEnd += OnFightEnd;
             fightScript.player = player;
             yield return StartCoroutine(ChangeText(currentRoom.description));
             yield return new WaitForSeconds(1.0f);
