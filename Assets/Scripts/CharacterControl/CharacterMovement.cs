@@ -8,6 +8,7 @@ namespace CharacterControl
     {
         public CharacterController controller;
         public int speed = 10;
+        public int rotationSpeed = 100;
         public float gravity = -9.81f;
         public float jump = 1.0f;
         public bool grounded = false;
@@ -32,18 +33,15 @@ namespace CharacterControl
                 velocity.y = 0;
             }
 
-            float moveX = Input.GetAxis("Horizontal");
-            float moveZ = Input.GetAxis("Vertical");
-            Vector3 move = new Vector3(moveX, 0, moveZ).normalized * speed * Time.deltaTime;
+            float rotY = Input.GetAxis("Horizontal");
+            float moveIntensity = Input.GetAxis("Vertical");
+            
+            
+            Vector3 move = transform.forward * moveIntensity * speed * Time.deltaTime;
             
             controller.Move(move);
 
-            if(move != Vector3.zero)
-            {
-                Quaternion targetQuat = transform.rotation * Quaternion.identity;
-                targetQuat.SetLookRotation(move);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetQuat, 0.1f);
-            }
+            transform.RotateAround(transform.position, new Vector3(0, 1, 0), rotY * Time.deltaTime * rotationSpeed);
 
             if(Input.GetButtonDown("Jump") && grounded)
             {
